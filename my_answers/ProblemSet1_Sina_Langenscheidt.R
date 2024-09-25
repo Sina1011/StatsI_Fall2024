@@ -1,0 +1,116 @@
+#Question 1: Education
+#remove objects
+rm(list=ls())
+##load dataset
+dataset_edu<-c(105, 69, 86, 100, 82, 111, 104, 110, 87, 108, 87, 90, 94, 113, 112, 98, 80, 97, 95, 111, 114, 89, 95, 126, 98)
+
+##1. calculate confidence interval 
+length(dataset_edu) #=25
+
+t_score <- qt(0.95, df=25-1)
+conf_high <- mean(dataset_edu)+(t_score)*(sd(dataset_edu)/sqrt(25))
+conf_low <- mean(dataset_edu)-(t_score)*(sd(dataset_edu)/sqrt(25))
+
+conf_high
+conf_low
+
+###90% confidence interval: [93.96; 102.92]
+
+##2. is the average IQ in the school higher than the average of all schools 
+
+###H1: higher than average
+###H0: lower than or equal to average
+###--> one-sided test
+
+t.test(dataset_edu, mu = 100, alternative = "greater")
+###p-value = 0.7215, therefore we reject our H1
+
+
+#Question 2: Political Economy
+##set working directory
+setwd("/Users/sinalangenscheidt/Documents/Applied Statistical Anaylsis I/GitHub/
+      StatsI_Fall2024/datasets")
+
+##load dataset
+expenditure<-read.delim("expenditure.txt")
+
+##1. relationships between X1, X2, X3 and Y
+##relationship X1 and Y
+plot(expenditure$X1,expenditure$Y, 
+     xlab = "per capita personal income in state",
+     ylab = "per capita expenditure on shelters/housing assistance in state", 
+     main = "Relationship between X1 and Y") 
+cor(expenditure$X1,expenditure$Y) #0.53
+###slight linear correlation (pearson?)
+
+##relationship X2 and Y
+plot(expenditure$X2,expenditure$Y, 
+     xlab = "number residents/100,000 ”financially insecure” in state",
+     ylab = "per capita expenditure on shelters/housing assistance in state",
+     main = "Relationship between X2 and Y") 
+cor(expenditure$X2,expenditure$Y) #0.45
+###also slight linear correlation, however graph shows almost a U-shape amongst 
+###the lower X2 (100-200)
+
+##relationship X3 and Y
+plot(expenditure$X3,expenditure$Y, 
+     xlab = "number people/1000 residing in urban areas in state",
+     ylab = "per capita expenditure on shelters/housing assistance in state",
+     main = "Relationship between X3 and Y") 
+cor(expenditure$X3,expenditure$Y) #0.46
+###slight linear correlation, not many obs in higher X3 (700-900), no remarkable 
+###differences in skewing at a certain point in the graph
+
+##relationship X1 and X2
+plot(expenditure$X1,expenditure$X2, 
+     xlab = "per capita personal income in state",
+     ylab = "number residents/100,000 ”financially insecure” in state",
+     main = "Relationship between X1 and X2") 
+cor(expenditure$X1,expenditure$X2) #0.21
+###no real correlation to see, almost equal distribution on Y-axis at mid-point
+###of x-axis (X1=2000), only extreme values (X2=100-200 or X2=400-500) on upper 
+###side of x-axis (X1=2500+)
+
+##relationship X2 and X3
+plot(expenditure$X2,expenditure$X3, 
+     xlab = "number residents/100,000 ”financially insecure” in state",
+     ylab = "number people/1000 residing in urban areas in state",
+     main = "Relationship between X2 and X3") 
+cor(expenditure$X2,expenditure$X3) #0.22
+###again no visible clear correlation, almost equal distribution on Y-axis at 
+###X2=200
+
+#2. relationship between Region and Y
+plot(expenditure$Region,expenditure$Y, 
+     xlab = "Region",
+     ylab = "per capita expenditure on shelters/housing assistance in state",
+     mean = "Relationship between Region and Y")
+
+boxplot(Y ~ Region, data = expenditure,
+        xlab="Region",
+        ylab="per capita expenditure on shelters/housing assistance in state",
+        main="Relationship between Region and Y")
+
+#3. relationship X1, Y and Region
+plot(expenditure$X1, expenditure$Y,  col = c("blue","red", "green", "purple"),
+     pch = c(0,1,2,3),
+     main= "Relationship between X1, Region and Y",
+     xlab="per capita personal income in state",
+     ylab="per capita expenditure on shelters/housing assistance in state")
+     
+legend(1000,130, legend=c("Northeast", "North Central", "South", "West"),
+            col = c("blue","red", "green", "purple"),
+            pch= c(0, 1,2,3))
+
+
+
+
+
+
+
+
+
+# scatterplot 1.
+pairs(expenditure[, c("Y", "X1", "X2", "X3")], 
+      main = "Relationships among X1, X2, X3 and 4")
+
