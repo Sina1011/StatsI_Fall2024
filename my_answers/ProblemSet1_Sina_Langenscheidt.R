@@ -35,6 +35,68 @@ setwd("/Users/sinalangenscheidt/Documents/Applied Statistical Anaylsis I/GitHub/
 expenditure<-read.delim("expenditure.txt")
 
 ##1. relationships between X1, X2, X3 and Y
+##create 3x2 grid
+par(mfrow = c(3, 2))
+
+#plot every relationship in grid
+plot(expenditure$X1, expenditure$Y,  main = "Relationship between X1 and Y",  
+     xlab = "per capita personal income in state", 
+     ylab = "/capita expenditure shelters/housing assistance")
+plot(expenditure$X2, expenditure$Y,  main = "Relationship between X2 and Y",  
+     xlab = "number residents/100,000 ”financially insecure” in state", 
+     ylab = "/capita expenditure shelters/housing assistance")
+plot(expenditure$X3, expenditure$Y,  main = "Relationship between X3 and Y",  
+     xlab = "number people/1000 residing in urban areas in state", 
+     ylab = "/capita expenditure shelters/housing assistance")
+plot(expenditure$X1, expenditure$X2, main = "Relationship between X1 and X2", 
+     xlab = "per capita personal income in state", 
+     ylab = "number residents/100,000 ”financially insecure”")
+plot(expenditure$X1, expenditure$X3, main = "Relationship between X1 and X3", 
+     xlab = "per capita personal income in state", 
+     ylab = "number people/1000 residing in urban areas")
+plot(expenditure$X2, expenditure$X3, main = "Relationship between X2 and X3", 
+     xlab = "number residents/100,000 ”financially insecure”", 
+     ylab = "number people/1000 residing in urban areas")
+
+#2. relationship between Region and Y
+boxplot(Y ~ Region, data = expenditure,
+        xlab="Region",
+        ylab="per capita expenditure on shelters/housing assistance in state",
+        main="Relationship between Region and Y")
+
+#3. relationship X1, Y and Region
+##relationship X1 and Y
+plot(expenditure$X1,expenditure$Y, 
+     xlab = "per capita personal income in state",
+     ylab = "per capita expenditure on shelters/housing assistance in state", 
+     main = "Relationship between X1 and Y") 
+
+##adding column "Region" with legend
+plot(expenditure$X1, expenditure$Y,  col = c("blue","red", "green", "purple"),
+     pch = c(0,1,2,3),
+     main= "Relationship between X1, Region and Y",
+     xlab="per capita personal income in state",
+     ylab="per capita expenditure on shelters/housing assistance in state")
+     
+legend(1000,130, legend=c("Northeast", "North Central", "South", "West"),
+            col = c("blue","red", "green", "purple"),
+            pch= c(0, 1,2,3))
+
+
+
+
+
+
+
+
+
+# scatterplot 1.
+pairs(expenditure[, c("Y", "X1", "X2", "X3")], 
+      main = "Relationships among X1, X2, X3 and 4")
+
+
+
+
 ##relationship X1 and Y
 plot(expenditure$X1,expenditure$Y, 
      xlab = "per capita personal income in state",
@@ -80,37 +142,6 @@ cor(expenditure$X2,expenditure$X3) #0.22
 ###again no visible clear correlation, almost equal distribution on Y-axis at 
 ###X2=200
 
-#2. relationship between Region and Y
-plot(expenditure$Region,expenditure$Y, 
-     xlab = "Region",
-     ylab = "per capita expenditure on shelters/housing assistance in state",
-     mean = "Relationship between Region and Y")
-
-boxplot(Y ~ Region, data = expenditure,
-        xlab="Region",
-        ylab="per capita expenditure on shelters/housing assistance in state",
-        main="Relationship between Region and Y")
-
-#3. relationship X1, Y and Region
-plot(expenditure$X1, expenditure$Y,  col = c("blue","red", "green", "purple"),
-     pch = c(0,1,2,3),
-     main= "Relationship between X1, Region and Y",
-     xlab="per capita personal income in state",
-     ylab="per capita expenditure on shelters/housing assistance in state")
-     
-legend(1000,130, legend=c("Northeast", "North Central", "South", "West"),
-            col = c("blue","red", "green", "purple"),
-            pch= c(0, 1,2,3))
 
 
-
-
-
-
-
-
-
-# scatterplot 1.
-pairs(expenditure[, c("Y", "X1", "X2", "X3")], 
-      main = "Relationships among X1, X2, X3 and 4")
 

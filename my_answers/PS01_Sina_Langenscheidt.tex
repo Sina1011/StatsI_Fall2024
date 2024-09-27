@@ -84,20 +84,53 @@ A school counselor was curious about the average of IQ of the students in her sc
 \lstinputlisting[language=R, firstline=5, lastline=5]{ProblemSet1_Sina_Langenscheidt.R}  
 
 \vspace{1cm}
-
 \begin{enumerate}
 	\item Find a 90\% confidence interval for the average student IQ in the school.\\
-	The 90\% confidence interval: [93.96; 102.92]
+	
+	First I calculated n using 
+	\begin{verbatim}
+		> length(dataset_edu)
+	\end{verbatim}
+	
+	Since n is smaller than 30 and I do not know the standard deviation of the whole sample, I decided to calculate the confidence interval using a t-distribution. To do so, I first calculated the t-score:
+\begin{verbatim}
+	> t_score <- qt(0.95, df=25-1)
+		\end{verbatim}
+
+	then I calculated the confidence interval
+	\begin{verbatim}
+	> conf_high <- mean(dataset_edu)+(t_score)*(sd(dataset_edu)/sqrt(25))
+	> conf_low <- mean(dataset_edu)-(t_score)*(sd(dataset_edu)/sqrt(25))
+	> conf_high
+	[1] 102.9201
+	> conf_low
+	[1] 93.95993
+		\end{verbatim}
+	Thus, the 90\% confidence interval is: [93.96; 102.92]
 	
 	\item Next, the school counselor was curious  whether  the average student IQ in her school is higher than the average IQ score (100) among all the schools in the country.\\ 
 	
 	\noindent Using the same sample, conduct the appropriate hypothesis test with $\alpha=0.05$.\\ 
 	
-	H1: higher than average
+	H1: higher than average (meaning the H1 is one-sided)
 	
 	H0: lower than or equal to average 
+		\begin{verbatim}
+	> t.test(dataset_edu, mu = 100, alternative = "greater")
 	
-	p-value = 0.7215
+	One Sample t-test
+	
+	data:  dataset_edu
+	t = -0.59574, df = 24, p-value = 0.7215
+	alternative hypothesis: true mean is greater than 100
+	95 percent confidence interval:
+	93.95993      Inf
+	sample estimates:
+	mean of x 
+	98.44 
+		\end{verbatim}
+	
+	The p-value = 0.7215
 	
 	0.7215 is a higher value than 0.05, therefore we reject our alternative hypothesis (alternative hypothesis= the average student IQ in her school is higher than the average IQ score among all the schools in the country.)
 \end{enumerate}
@@ -129,32 +162,72 @@ A school counselor was curious about the average of IQ of the students in her sc
 \item
 Please plot the relationships among \emph{Y}, \emph{X1}, \emph{X2}, and \emph{X3}? What are the correlations among them (you just need to describe the graph and the relationships among them)?
 
-\includegraphics{Plot_X1_y}
-visible linear correlation (cor = 0.53)
 
-\includegraphics{Plot_X2_Y}
-also slight linear correlation (cor = 0.45), however graph shows almost a U-shape along the lower x-axis (X2 = 100-200)
+First I created a 3x2 grid layout using 
+	\begin{verbatim}
+		> par(mfrow = c(3, 2))
+			\end{verbatim}
+then I plotted all individual plots into that grid:
+\begin{verbatim}
+	> plot(expenditure$X1, expenditure$Y,  main = "Relationship between X1 and Y",  
+	+      xlab = "per capita personal income in state", 
+	+      ylab = "/capita expenditure shelters/housing assistance")
+	> plot(expenditure$X2, expenditure$Y,  main = "Relationship between X2 and Y",  
+	+      xlab = "number residents/100,000 ”financially insecure” in state", 
+	+      ylab = "/capita expenditure shelters/housing assistance")
+	> plot(expenditure$X3, expenditure$Y,  main = "Relationship between X3 and Y",  
+	+      xlab = "number people/1000 residing in urban areas in state", 
+	+      ylab = "/capita expenditure shelters/housing assistance")
+	> plot(expenditure$X1, expenditure$X2, main = "Relationship between X1 and X2", 
+	+      xlab = "per capita personal income in state", 
+	+      ylab = "number residents/100,000 ”financially insecure”")
+	> plot(expenditure$X1, expenditure$X3, main = "Relationship between X1 and X3", 
+	+      xlab = "per capita personal income in state", 
+	+      ylab = "number people/1000 residing in urban areas")
+	> plot(expenditure$X2, expenditure$X3, main = "Relationship between X2 and X3", 
+	+      xlab = "number residents/100,000 ”financially insecure”", 
+	+      ylab = "number people/1000 residing in urban areas")
+		\end{verbatim}
+		
+I had to shorten some of the names of the scales to fit in the graph. Please assume every scale to refer to the situation "in state".
 
-\includegraphics{Plot_X3_Y}
-slight linear correlation (cor =0.46), not many obs for higher X3 values (X3=700-900), no remarkable differences in the skewing of variable on the y- or x-axis at any certain point in the graph
 
-\includegraphics{Plot_X1_X2}
-no clear linear correlation to see (cor =0.21), almost equal distribution on Y-axis at mid-point of x-axis (X1=2000), only extreme values (X2=100-200 or X2=400-500) on upper side of x-axis (X1=2500+)
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Plot_X_Y}
 
-\includegraphics{Plot_X2_X3}
-again no visible clear correlation (cor = 0.22), almost equal distribution of X2-values on y-axis at X2=200
+I don't find any of the correlations to be very clea-cut linear correlations. However, the first graph (Relationship between X1 and Y) shows what I would consider still a linear correlation throughout the whole graph, especially a the most frequent values for X1 (X1=1500-2000). The relationship between X2 and Y seems to be linear starting at about X2=200. Before that the distribution seems almost U-shaped. The relatinship between X3 and Y appear linear to me as well, however the highest X3-values (X3=800-900) seem to have lower Y-values again. Since there are not many observation like this, I would still consider the overall distribution linear. The distribution between X1 and X3 also appears to be linear, while the relationship between X1 and X2 as well as between X2 and X3 seems to have, in my opinion, no discernible distribution, linear or otherwise. In general, I believe more observations would be helpful in determining linearity, especially in the case of X3 and Y. 
 
 \vspace{.5cm}
 \item
 Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on housing assistance?
 
+To do so I created a boxplot, since it is easiest to see relevant values like median or maximum value in that kind of graph.
+\begin{verbatim}
+	boxplot(Y ~ Region, data = expenditure,
+	xlab="Region",
+	ylab="per capita expenditure on shelters/housing assistance in state",
+	main="Relationship between Region and Y")
+		\end{verbatim}
+
 \includegraphics{Boxplot_Region_Y}
-Region 4 (West) seems to have the highest median (shown by the black line), followed by Region 2 (North Central). However the maximum values of Y can be found in Region 4 and Region 1 (Northeast), not Region 2.
+Region 4 (West) seems to have the highest median (shown by the black line), followed by Region 2 (North Central). However the maximum values of Y can be found in Region 4 and Region 1 (Northeast), not Region 2. So overall, I think the highest per capita expenditure on housing assistance can be found in the West. 
 \vspace{.5cm}
 \item
 Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph and the relationship. Reproduce the above graph including one more variable \emph{Region} and display different regions with different types of symbols and colors.
 
-\includegraphics{Plot_X1_Region_Y}
+First, plotting the relationship between Y and X1:
+\begin{verbatim}
+> plot(expenditure$X1,expenditure$Y, 
++      xlab = "per capita personal income in state",
++      ylab = "per capita expenditure on shelters/housing assistance in state", 
++      main = "Relationship between X1 and Y") 
+\end{verbatim}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Plot_X1_y}
+As I answered before, the relationship between X1 and Y according to this scatterplot seems positively linear to me. The higher the per capita personal income in a state, the higher the per capita expenditure on shelters/housing assistance in that state. This can be seen especially where there are a lot of observations (around X1=1500-2000). However, there are not a lot of observations so it is difficult to tell, especially when considering the states with a higher per capita personal income (X1=2500 or more).
+
+
+After that, I add the variable "Region"
+
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Plot_X1_Region_Y}
 \end{itemize}
 
 
