@@ -41,7 +41,7 @@ pchisq(chi_square, df=1*2, lower.tail = FALSE)
 
 ##c. standardized residuals
 ## (fobserved-fexpected)/standard error: 
-#(sqrt((1-row proportion)*(1- column proportion))
+#(sqrt(fexpected*(1-row proportion)*(1- column proportion))
 row_1_prop<-row_1_total/total
 row_2_prop<-row_2_total/total
 column_1_prop<-column_1_total/total

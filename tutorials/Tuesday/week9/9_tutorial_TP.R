@@ -25,7 +25,7 @@ pkgTest <- function(pkg){
 lapply(c("stargazer","vioplot","arm","broom","ggplot2","fastDummies"),  pkgTest)
 
 # Set working directory for current folder
-setwd("C:/Users/tpa064/Downloads")
+setwd("/Users/sinalangenscheidt/Documents/Applied Statistical Anaylsis I/tutorial")
 getwd()
 
 # Research questions: 
@@ -36,7 +36,7 @@ getwd()
 # Make sure to download ESS data first and 
 # add to the datasets folder in your repository. 
 # Download the ESS10 - integrated file, edition 3.2 here:
-# https://ess-search.nsd.no/en/study/172ac431-2a06-41df-9dab-c1fd8f3877e7
+#https://ess-search.nsd.no/en/study/172ac431-2a06-41df-9dab-c1fd8f3877e7
 
 # Look at the Codebook: 
 # **DV** (euftf), European unification go further or gone too far
