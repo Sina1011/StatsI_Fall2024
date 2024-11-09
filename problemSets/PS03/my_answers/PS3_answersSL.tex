@@ -110,6 +110,14 @@
 		Multiple R-squared:  0.3673,	Adjusted R-squared:  0.3671 
 		F-statistic:  1853 on 1 and 3191 DF,  p-value: < 2.2e-16
 	\end{verbatim}
+	When difflog is zero (meaning equal campaign spending), the model predicts that the incumbent’s vote share would be approximately 57.9\%\ (intercept).
+	
+	For every one-unit increase in difflog (indicating the incumbent spends more than the challenger), the incumbent’s vote share increases by about 4.17 percentage points (slope - difflog coefficient). (positive link between higher relative spending by the incumbent and an increase in their vote share)
+	
+	The effect of difflog on voteshare is statistically significant, with a very low p-value (p less than 0.001), indicating that this result is unlikely due to chance.
+	
+	The R-squared of 0.3673 suggests that about 36.7\%\ of the variability in vote share is explained by campaign spending differences, with the remaining variation due to other factors.
+	
 	I am going to repeat this general process for Question 2 and 3.
 		\item Make a scatterplot of the two variables and add the regression line. 	\\
 		
@@ -123,6 +131,7 @@
 	\end{verbatim}
 	This gives me the following graph: \\
  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Q_1_Plot}
+ I am going to repeat this same process for Question 2 and Question 3.
 	
 		\item Save the residuals of the model in a separate object.	\\
 		
@@ -136,11 +145,13 @@
 			\begin{verbatim}
 			> q_1_regression <- lm(formula = voteshare ~ difflog, data = inc.sub)
 		\end{verbatim}
-		I get \\
-		Y = 0.57903+0.04167x \\
+		Specifically relevant to me are the Intercept Coefficient Estimate and the variable (difflog) Coefficient Estimate.
+		
+		So in this case I get \\
+		Y = 0.579031 + 0.041666 * X \\
 		Or in our specific case: \\
-		voteshare = 0.57903 + 0.04167*difflog \\
-		Incumbent's Vote Share = 0.57903 + 0.04167 * difference in campaign spending between incumbent and challenger
+		voteshare = 0.579031 + 0.041666 * difflog \\
+		Incumbent's Vote Share = 0.579031 + 0.041666 * difference in campaign spending between incumbent and challenger
 	\end{enumerate}
 	
 \newpage
@@ -172,6 +183,14 @@
 			Multiple R-squared:  0.08795,	Adjusted R-squared:  0.08767 
 			F-statistic: 307.7 on 1 and 3191 DF,  p-value: < 2.2e-16
 		\end{verbatim}
+		When difflog is zero (meaning equal campaign spending), the model predicts that a presidential vote share of approximately 50.8\%\ (intercept).
+		
+		For every one-unit increase in difflog (indicating the incumbent spends more than the challenger), the presidential vote share increases by about 2.38 percentage points (slope - difflog coefficient). (positive link between higher relative spending by the incumbent and increase in their presidential candidate's success)
+		
+		The effect of difflog on presvote is statistically significant (p less than 0.001).
+		
+		The R-squared of 0.088 suggests that about 8.8\%\ of the variability in the presidential vote share is explained by campaign spending differences, with the remaining variation due to other factors. (other factors beyond campaign spending differences play a substantial role in determining the presidential candidate's vote share)
+		
 		\item Make a scatterplot of the two variables and add the regression line.  \\
 		\begin{verbatim}
 > plot(inc.sub$difflog, inc.sub$presvote, 
@@ -191,10 +210,10 @@
 			q_2_regression<-lm(formula = presvote ~ difflog, data = inc.sub)
 		\end{verbatim}
 		I get \\
-		Y=0.50758+0.02384*X \\
+		Y = 0.507583 + 0.023837 * X \\
 		Or in our specific case: \\
-		presvote = 0.50758 + 0.02384*difflog \\
-		vote share of the presidential candidate of the incumbent's party = 0.50758 + 0.02384 * difference in campaign spending between incumbent and challenger
+		presvote = 0.507583 + 0.023837 * difflog \\
+		vote share of the presidential candidate of the incumbent's party = 0.507583 + 0.023837 * difference in campaign spending between incumbent and challenger
 	\end{enumerate}
 	
 	\newpage	
@@ -227,6 +246,15 @@
 			Multiple R-squared:  0.2058,	Adjusted R-squared:  0.2056 
 			F-statistic:   827 on 1 and 3191 DF,  p-value: < 2.2e-16
 		\end{verbatim}
+
+		When presvote is zero (purely hypothetically the presidential candidate of the incumbent’s party receives no votes), model predicts an incumbent vote share (voteshare) of about 44.1\%\. (This number is harder to interpret, might suggest strong base of support for the incumbent party, no matter the presidential candidate).
+		
+		For every one-unit increase in presvote (representing a 1\%\ increase in the presidential candidate’s vote share), the incumbent’s vote share increases by about 0.39\%\ (slope - presvote coefficient).
+		
+		The low p-value (p less than 0.001) for presvote shows this effect is statistically significant. 
+		
+		The R-squared of 0.206 suggests that about 20.6\%\ of the variability iincumbent’s vote share is explained by the presidential vote share.
+		
 		\item Make a scatterplot of the two variables and add the regression line. \\
 		\begin{verbatim}
 		> plot(inc.sub$presvote, inc.sub$voteshare,
@@ -242,10 +270,10 @@
 			> q_3_regression<-lm(formula = voteshare ~ presvote, data = inc.sub)
 		\end{verbatim}
 		I get \\
-		Y=0.4413+0.3880X \\
+		Y=0.441330 +0.388018 * X \\
 		Or in our specific case: \\
-		voteshare = 0.4413 + 0.3880*presvote \\
-		incumbent's electoral success = 0.4413 + 0.3880 * vote share of the presidential candidate of the incumbent's party
+		voteshare = 0.441330 + 0.388018 * presvote \\
+		incumbent's electoral success = 0.441330 + 0.388018  * vote share of the presidential candidate of the incumbent's party
 	
 	\end{enumerate}
 	
@@ -255,6 +283,7 @@
 \noindent The residuals from part (a) tell us how much of the variation in \texttt{voteshare} is $not$ explained by the difference in spending between incumbent and challenger. The residuals in part (b) tell us how much of the variation in \texttt{presvote} is $not$ explained by the difference in spending between incumbent and challenger in the district.
 	\begin{enumerate}
 		\item Run a regression where the outcome variable is the residuals from Question 1 and the explanatory variable is the residuals from Question 2. \\
+		
 		q\_1\_residuals and q\_2\_residuals are the saved residuals from Question 1 and Question 2 respectively. Using these, I just run the regression in the same way as before, only this time I am not specifying the dataset as the variables that I created myself are not tied directly to the dataset inc.sub.
 			\begin{verbatim}
 		> q_4_regression<-lm(formula = q_1_residuals ~ q_2_residuals)
@@ -279,7 +308,18 @@
 		Multiple R-squared:   0.13,	Adjusted R-squared:  0.1298 
 		F-statistic:   477 on 1 and 3191 DF,  p-value: < 2.2e-16
 	\end{verbatim}
+	
+	The intercept here is approximately zero (-1.942e-18) and statistically insignificant, which makes sense because the residuals should theoretically be centered around zero. 
+	
+	For each one-unit increase in q\_2\_residuals, q\_1\_residuals increases by approximately 0.257 units.
+	
+	The low p-value (p less than 0.001) for q\_2\_residuals indicates that this relationship is statistically significant.
+	
+	The R-squared value of 0.13 indicates that 13\% of the variance in q\_1\_residuals is explained by q\_2\_residuals, so much of the variability in q\_1\_residuals should be explained by other factors.
+	
 		\item Make a scatterplot of the two residuals and add the regression line. 	\\
+		
+		Using the exact same procedure as in the previous Questions, only this time using the values q\_1\_residuals and q\_2\_residuals I created and saved myself:
 		\begin{verbatim}
 		> plot(q_2_residuals, q_1_residuals,
 		+      xlab = "variation presvote not explained by difference in spending",
@@ -288,7 +328,8 @@
 		> abline(lm(formula = q_2_residuals ~ q_1_residuals, data = inc.sub), col="red")
 	\end{verbatim}
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Q_4_Plot}
-		\item Write the prediction equation.
+		\item Write the prediction equation. \\
+		
 		Using the numbers calculated with
 		\begin{verbatim}
 			> q_4_regression<-lm(formula = q_1_residuals ~ q_2_residuals)
@@ -296,8 +337,8 @@
 		I get: \\
 		Y=-1.942e-18+2.569e-01 * X \\
 		Or in our specific case: \\
-		Q\_1\_residuals = 1.942e-18 + 2.569e-01 * Q\_2\_residuals \\
-		amount of variation in voteshare not explained by the difference in spending between incumben and challenger = 1.942e-18 + 2.569e-01 * amount of variation in presvote not explained by the difference in spending between incumbent and challenger in the district \\
+		Q\_1\_residuals = -1.942e-18 + 2.569e-01 * Q\_2\_residuals \\
+		amount of variation in voteshare not explained by the difference in spending between incumben and challenger = -1.942e-18 + 2.569e-01 * amount of variation in presvote not explained by the difference in spending between incumbent and challenger in the district \\
 		The intercept is very close to 0 (almost negligible). 
 	\end{enumerate}
 	
@@ -333,16 +374,27 @@
 		Multiple R-squared:  0.4496,	Adjusted R-squared:  0.4493 
 		F-statistic:  1303 on 2 and 3190 DF,  p-value: < 2.2e-16
 	\end{verbatim}
+	
+	The intercept indicates that when both difflog (campaign spending difference) and presvote (presidential vote share) are zero, the incumbent’s vote share (voteshare) would be around 0.449, or 44.9\%., representing a baseline vote share for the party, without the influence of either campaign spending differences or the presidential candidate’s performance.
+	
+	For each unit increase in difflog, voteshare is expected to increase by around 0.0355 units, if prevote remains the same. 
+	
+	For each unit increase in presvote, voteshare is expected to increase by around 0.257 units, if difflog remains the same.
+	
+	Both difflog and presvote have p-values well below 0.001, showing statistically significant effects on voteshare. 
+	
+	The R-squared of 0.4496 means that 44.96\% of the variance in voteshare is explained by difflog and presvote. (means that the model captures a lot of variation in the incumbent’s vote share based on these two predictors)
+	
 		\item Write the prediction equation.	\\
 		
 		I get: \\
-		Y=0.44864+0.03554 * X\_1+0.25688*X\_2\\
+		Y=0.4486442 + 0.0355431 * X\_1 + 0.2568770 * X\_2\\
 		Or in our specific case: \\
-		voteshare = 0.44864 + 0.03554 * difflog+0.25688 * presvote\\
-		incumbent's vote share =  0.44864 + 0.03554 * difference in spending between incumbent and challenger+0.25688 * president's popularity \\
+		voteshare = 0.4486442 + 0.0355431 * difflog + 0.2568770 * presvote\\
+		incumbent's vote share =  0.4486442 + 0.0355431 * difference in spending between incumbent and challenger + 0.2568770 * president's popularity \\
 		\item What is it in this output that is identical to the output in Question 4? Why do you think this is the case? \\
 		
-		The coefficient for q\_2\_residuals in q\_4\_regression (0.2569) is identical to the coefficient for presvote in q\_5\_regression (0.2569).
+		The coefficient for q\_2\_residuals in q\_4\_regression (0.2569) is identical to the coefficient for presvote in q\_5\_regression (rounded 0.2569).
 		
 		This is because q\_4\_regression is regressing the residuals of voteshare ~ difflog on the residuals of presvote ~ difflog. This isolates the effect of presvote on voteshare while controlling for difflog. 
 		

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.10)  6 NOV 2024 11:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.10)  8 NOV 2024 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -899,166 +899,175 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
 <Q_1_Plot.pdf, id=18, 499.8675pt x 355.3275pt>
 File: Q_1_Plot.pdf Graphic file (type pdf)
 <use Q_1_Plot.pdf>
-Package pdftex.def Info: Q_1_Plot.pdf  used on input line 125.
+Package pdftex.def Info: Q_1_Plot.pdf  used on input line 133.
 (pdftex.def)             Requested size: 469.76872pt x 333.93198pt.
 
-Overfull \hbox (29.3884pt too wide) in paragraph at lines 124--126
-[] 
+Overfull \hbox (29.3884pt too wide) in paragraph at lines 132--135
+[]
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 
-Overfull \hbox (4.2199pt too wide) in paragraph at lines 138--138
+Overfull \hbox (4.2199pt too wide) in paragraph at lines 147--147
  []   \OT1/cmtt/m/n/12 > q_1_regression <- lm(formula = voteshare ~ difflog, da
 ta = inc.sub)[] 
  []
 
 [3 <./Q_1_Plot.pdf>] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
-
- []
-
-
-Overfull \hbox (10.3949pt too wide) in paragraph at lines 182--182
+Overfull \hbox (10.3949pt too wide) in paragraph at lines 201--201
  []\OT1/cmtt/m/n/12 +      xlab = "difference between incumbent's and challenge
 r's spending",[] 
  []
 
 
-Overfull \hbox (65.96992pt too wide) in paragraph at lines 182--182
+Overfull \hbox (65.96992pt too wide) in paragraph at lines 201--201
  []\OT1/cmtt/m/n/12 +      ylab = "vote share of the presidential candidate of 
 the incumbent's party",[] 
  []
 
-<Q_2_Plot.pdf, id=40, 499.8675pt x 355.3275pt>
+<Q_2_Plot.pdf, id=45, 499.8675pt x 355.3275pt>
 File: Q_2_Plot.pdf Graphic file (type pdf)
 <use Q_2_Plot.pdf>
-Package pdftex.def Info: Q_2_Plot.pdf  used on input line 183.
+Package pdftex.def Info: Q_2_Plot.pdf  used on input line 202.
 (pdftex.def)             Requested size: 469.76872pt x 333.93198pt.
 
-Overfull \hbox (29.3884pt too wide) in paragraph at lines 183--184
+Overfull \hbox (29.3884pt too wide) in paragraph at lines 202--203
 [] 
  []
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
 
-Overfull \hbox (35.09491pt too wide) in paragraph at lines 187--187
+Overfull \hbox (35.09491pt too wide) in paragraph at lines 206--206
  []  \OT1/cmtt/m/n/12 q_2_residuals <- lm(formula = presvote ~ difflog, data = 
 inc.sub)$residuals[] 
  []
 
-[6 <./Q_2_Plot.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+[6 <./Q_2_Plot.pdf>] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
-
-Overfull \hbox (78.31993pt too wide) in paragraph at lines 237--237
+[8]
+Overfull \hbox (78.31993pt too wide) in paragraph at lines 265--265
  []  \OT1/cmtt/m/n/12 +      xlab = "vote share of the presidential candidate o
 f the incumbent's party",[] 
  []
 
-<Q_3_Plot.pdf, id=59, 499.8675pt x 355.3275pt>
+<Q_3_Plot.pdf, id=69, 499.8675pt x 355.3275pt>
 File: Q_3_Plot.pdf Graphic file (type pdf)
 <use Q_3_Plot.pdf>
-Package pdftex.def Info: Q_3_Plot.pdf  used on input line 237.
+Package pdftex.def Info: Q_3_Plot.pdf  used on input line 265.
 (pdftex.def)             Requested size: 469.76872pt x 333.93198pt.
 
-Overfull \hbox (29.3884pt too wide) in paragraph at lines 237--238
+Overfull \hbox (29.3884pt too wide) in paragraph at lines 265--266
 [] 
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
 
  []
 
-[8 <./Q_3_Plot.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+[9 <./Q_3_Plot.pdf>] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
 
-Overfull \hbox (35.09491pt too wide) in paragraph at lines 289--289
+Overfull \hbox (35.09491pt too wide) in paragraph at lines 329--329
  []  \OT1/cmtt/m/n/12 +      xlab = "variation presvote not explained by differ
 ence in spending",[] 
  []
 
 
-Overfull \hbox (41.26991pt too wide) in paragraph at lines 289--289
+Overfull \hbox (41.26991pt too wide) in paragraph at lines 329--329
  []  \OT1/cmtt/m/n/12 +      ylab = "variation voteshare not explained by diffe
 rence in spending",[] 
  []
 
 
-Overfull \hbox (65.96992pt too wide) in paragraph at lines 289--289
+Overfull \hbox (65.96992pt too wide) in paragraph at lines 329--329
  []  \OT1/cmtt/m/n/12 > abline(lm(formula = q_2_residuals ~ q_1_residuals, data
  = inc.sub), col="red")[] 
  []
 
-[9]
-<Q_4_Plot.pdf, id=85, 499.8675pt x 355.3275pt>
+<Q_4_Plot.pdf, id=92, 499.8675pt x 355.3275pt>
 File: Q_4_Plot.pdf Graphic file (type pdf)
 <use Q_4_Plot.pdf>
-Package pdftex.def Info: Q_4_Plot.pdf  used on input line 290.
+Package pdftex.def Info: Q_4_Plot.pdf  used on input line 330.
 (pdftex.def)             Requested size: 469.76872pt x 333.93198pt.
 
-Overfull \hbox (29.3884pt too wide) in paragraph at lines 290--291
+Overfull \hbox (29.3884pt too wide) in paragraph at lines 330--331
 [] 
  []
 
-[10 <./Q_4_Plot.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 309--310
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
+
+ []
+
+[12 <./Q_4_Plot.pdf>] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 350--351
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
+Underfull \hbox (badness 10000) in paragraph at lines 390--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--343
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--344
-
- []
-
-[11]
-Overfull \hbox (19.01378pt too wide) in paragraph at lines 351--352
+Overfull \hbox (19.01378pt too wide) in paragraph at lines 403--404
 []\OT1/cmr/m/n/12 This iso-la-tion also ex-plains why the stan-dard er-ror and 
 t-value for presvote in q[]5[]regression
  []
 
-[12] (./PS3_answersSL.aux)
+[15] [16] (./PS3_answersSL.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1067,23 +1076,23 @@ Package rerunfilecheck Info: File `PS3_answersSL.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26182 strings out of 474116
- 463321 string characters out of 5743682
+ 26187 strings out of 474116
+ 463357 string characters out of 5743682
  1936187 words of memory out of 5000000
- 48049 multiletter control sequences out of 15000+600000
+ 48050 multiletter control sequences out of 15000+600000
  568173 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,93p,3245b,685s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,6n,93p,3245b,693s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
 usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
 r/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr
 /local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on PS3_answersSL.pdf (12 pages, 838669 bytes).
+Output written on PS3_answersSL.pdf (16 pages, 844855 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
+ 162 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
